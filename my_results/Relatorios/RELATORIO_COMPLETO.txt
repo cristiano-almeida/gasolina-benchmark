@@ -1,0 +1,46 @@
+================================================================================
+BENCHMARK ANP - PREVISÃO DA GASOLINA v17.0
+RELATÓRIO COMPLETO
+Gerado em: 2026-06-04 14:17:15
+================================================================================
+
+1. METODOLOGIA
+----------------------------------------
+• Treino: 2013-2022 | Validação: 2023-2024 | Teste: 2025
+• Modelos: Naive, SARIMAX, Exponential Smoothing, THETA, ETS_no_trend, XGBoost, LSTM
+• Previsão recursiva de 24 passos (Forecast Recursivo)
+• Grid Search cronológico para calibração
+
+2. RESULTADOS - NACIONAL
+----------------------------------------
+     mae     rmse     mape    smape                modelo
+0.130532 0.144919 2.071166 2.097783                 Naive
+0.044960 0.050939 0.715208 0.718167               SARIMAX
+0.081064 0.098485 1.295064 1.287497 Exponential_Smoothing
+0.049553 0.061683 0.789427 0.790714                 THETA
+0.083251 0.098429 1.323525 1.335846          ETS_no_trend
+0.148973 0.162572 2.365776 2.398912               XGBoost
+0.047183 0.062080 0.747446 0.750635                  LSTM
+
+3. RESULTADOS - MINAS GERAIS
+----------------------------------------
+     mae     rmse     mape    smape                modelo
+0.082626 0.104124 1.337486 1.351148                 Naive
+0.056047 0.063103 0.916475 0.916112               SARIMAX
+0.047763 0.061361 0.780516 0.779365 Exponential_Smoothing
+0.070086 0.085540 1.147413 1.139573                 THETA
+0.041987 0.056455 0.683926 0.687012          ETS_no_trend
+0.084170 0.107515 1.366206 1.375811               XGBoost
+0.107261 0.119526 1.760787 1.742310                  LSTM
+
+4. MODELOS VENCEDORES
+----------------------------------------
+🏆 Nacional: SARIMAX (MAPE = 0.72%)
+🏆 Minas Gerais: ETS_no_trend (MAPE = 0.68%)
+
+5. CONCLUSÕES
+----------------------------------------
+• Modelos estatísticos (SARIMAX e ETS) superaram ML/DL na série curta
+• A sazonalidade é mais relevante em MG que no cenário nacional
+• O Forecast Recursivo permitiu avaliar acúmulo de erros
+================================================================================

@@ -1,0 +1,25 @@
+================================================================================
+FORECAST RECURSIVO - DEFINIÇÃO METODOLÓGICA
+================================================================================
+
+O QUE É?
+--------
+Forecast recursivo (previsão recursiva) é uma estratégia de previsão multipassos
+onde o modelo utiliza suas próprias previsões como insumo para prever os passos
+seguintes.
+
+COMO FUNCIONA NESTE TRABALHO?
+-----------------------------
+1. Horizonte de previsão: 24 passos (quinzenas de 2025)
+2. Modelos treinados com dados históricos (2013-2024)
+3. Passo 1: Previsão para 2025-01-15 usando dados reais até 2024-12-31
+4. Passo 2: Previsão para 2025-01-31 usando dados reais + previsão do passo 1
+5. Repete até completar 24 passos
+
+IMPLEMENTAÇÃO NO CÓDIGO:
+------------------------
+- XGBoost: função xgboost() na classe PipelinePrevisao
+- LSTM: função lstm() na classe PipelinePrevisao
+- Ambos mantêm um histórico (history) que é atualizado a cada passo
+
+================================================================================
